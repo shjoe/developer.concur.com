@@ -45,7 +45,7 @@ To authenticate the request, the developer of the page in the application connec
 
 When the request is received by the connector:
 
-1. Obtain the username and password for the application connector. How you do this will be specific to your implementation.
+1. Obtain the username and password for the application connector. How you do this will be specific to your implementation. Note: both the username and password must be at least 10 characters for increased security and the maximum allowed length is 50 characters.
 2. Parse and URL decode the following from the query string:
     1. xcompanydomain
     2. xuserid (used for subsequent web service call)
@@ -80,9 +80,3 @@ GET https://{URL to your custom connector and endpoint}
 
 ### Content Body
 The application connector does not directly respond to the Launch External URL request. The application connector completes any updates to SAP Concur using the Inbound Web Services. The Launch External URL functionality monitors the external window, and when the window is closed, it redraws the form the user launched from to display any updated values.
-
-The following example shows how the Launch External URL web service is used to bring an external system value into an Expense Entry form field. The following configuration has already been completed:
-
-* The Project ID field has been configured as a Launch URL form field control type.
-* The Project ID field has been added to the expense entry form.
-* The application connector has been configured to use the expense type of the entry and the user ID to search for the correct Project IDs and present them to the user.
